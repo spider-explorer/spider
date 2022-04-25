@@ -1,6 +1,12 @@
 {
   "version": "?",
   "software": {
+    "SpiderBrowser": {
+      "version": "v2022.04.25.18.08.14",
+      "ext": "zip",
+      "path": ".",
+      "url": "https://github.com/spider-explorer/spiderbrowser/releases/download/v2022.04.25.18.08.14/spiderbrowser-v2022.04.25.18.08.14.zip"
+    },
     "AirExplorer": {
       "version": "4.6.2",
       "ext": "7z",
