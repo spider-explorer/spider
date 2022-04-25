@@ -10,7 +10,9 @@ static QString prepareMain(QSplashScreen &splash)
 {
     JNetworkManager nm;
     QLocale locale;
-    QString spider2Json = nm.getBatchAsText(QUrl("https://gitlab.com/javacommons/spider-release/-/raw/main/spider.json"));
+    //QString spider2Json = nm.getBatchAsText(QUrl("https://gitlab.com/javacommons/spider-release/-/raw/main/spider.json"));
+    QString spider2Json = nm.getBatchAsText(QUrl("https://raw.githubusercontent.com/spider-explorer/spider/main/spider.json"));
+    // https://raw.githubusercontent.com/spider-explorer/spider/main/spider.json
     qDebug().noquote() << spider2Json;
     QJsonParseError error;
     QJsonDocument jsonDoc = QJsonDocument::fromJson(spider2Json.trimmed().toUtf8(), &error);
