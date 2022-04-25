@@ -50,11 +50,10 @@ cat << EOS > spider.json
 }
 EOS
 echo $GITHUB_ALL | gh auth login --with-token
-gh release create v$ts "upload.tmp/spider-release/spider-v$ts.zip" --generate-notes --target main
 cp spider.json upload.tmp/spider-release/spider-v$ts.json
-#./gitlab-console-x86_64-static.exe --project javacommons/spider-release --action upload spider.json upload.tmp/spider-release/spider-v$ts.json
 git add .
 git commit -m"Spider Explorer v$ts"
 git tag -a v$ts -mv$ts
 git push origin v$ts
 git push
+gh release create v$ts "upload.tmp/spider-release/spider-v$ts.zip" --generate-notes --target main
