@@ -1,0 +1,5 @@
+#! bash -uvx
+branch=`git rev-parse --abbrev-ref HEAD`
+git pull -f origin ${branch}
+git submodule update --init --recursive
+

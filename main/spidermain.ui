@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>SpiderMain</class>
+ <widget class="QMainWindow" name="SpiderMain">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>765</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="toolButtonStyle">
+   <enum>Qt::ToolButtonTextOnly</enum>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <widget class="QFrame" name="frame">
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_3">
+       <item>
+        <layout class="QVBoxLayout" name="verticalMin">
+         <item>
+          <layout class="QHBoxLayout" name="horizontalTop">
+           <item>
+            <widget class="SpiderForm" name="spiderWidget" native="true">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>320</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>320</width>
+               <height>16777215</height>
+              </size>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <layout class="QVBoxLayout" name="verticalLayout">
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayout_2">
+               <item>
+                <widget class="QPushButton" name="btnNyagos">
+                 <property name="focusPolicy">
+                  <enum>Qt::NoFocus</enum>
+                 </property>
+                 <property name="text">
+                  <string>フォルダをnyagosで開く</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QPushButton" name="btnBash">
+                 <property name="focusPolicy">
+                  <enum>Qt::NoFocus</enum>
+                 </property>
+                 <property name="text">
+                  <string>フォルダをbashで開く</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QPushButton" name="btnExplorer">
+                 <property name="focusPolicy">
+                  <enum>Qt::NoFocus</enum>
+                 </property>
+                 <property name="text">
+                  <string>フォルダをエクスプローラーで開く</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <spacer name="horizontalSpacer">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <widget class="ExplorerForm" name="explorerWidget" native="true"/>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QFrame" name="frameBottomMenu1">
+           <layout class="QVBoxLayout" name="verticalBottomMenu">
+            <item>
+             <layout class="QHBoxLayout" name="horizontalBottomMenu_1"/>
+            </item>
+           </layout>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>765</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QToolBar" name="toolBar">
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionTest01"/>
+   <addaction name="actionTest02"/>
+   <addaction name="actionManageScoop"/>
+   <addaction name="actionManageEnvVars"/>
+   <addaction name="actionJoinMP4Files"/>
+   <addaction name="actionAirExplorer"/>
+   <addaction name="actionEverything"/>
+   <addaction name="actionLazarus"/>
+   <addaction name="actionChrome"/>
+   <addaction name="actionFolderSize"/>
+   <addaction name="actionRapidEE"/>
+   <addaction name="actionSQLiteStudio"/>
+   <addaction name="actionNotepad3"/>
+   <addaction name="actionLibreOffice"/>
+   <addaction name="actionQtCreator"/>
+   <addaction name="actionQOwnNotes"/>
+  </widget>
+  <action name="actionTest01">
+   <property name="text">
+    <string>Test01</string>
+   </property>
+  </action>
+  <action name="actionChrome">
+   <property name="text">
+    <string>【Chrome】</string>
+   </property>
+  </action>
+  <action name="actionFolderSize">
+   <property name="text">
+    <string>【FolderSize】</string>
+   </property>
+  </action>
+  <action name="actionRapidEE">
+   <property name="text">
+    <string>【RapidEE】</string>
+   </property>
+  </action>
+  <action name="actionSQLiteStudio">
+   <property name="text">
+    <string>【SQLiteStudio】</string>
+   </property>
+  </action>
+  <action name="actionNotepad3">
+   <property name="text">
+    <string>【Notepad3】</string>
+   </property>
+  </action>
+  <action name="actionLibreOffice">
+   <property name="text">
+    <string>【LibreOffice】</string>
+   </property>
+  </action>
+  <action name="actionQtCreator">
+   <property name="text">
+    <string>【QtCreator】</string>
+   </property>
+  </action>
+  <action name="actionQOwnNotes">
+   <property name="text">
+    <string>【QOwnNotes】</string>
+   </property>
+  </action>
+  <action name="actionTest02">
+   <property name="text">
+    <string>Test02</string>
+   </property>
+  </action>
+  <action name="actionManageScoop">
+   <property name="text">
+    <string>【scoop管理】</string>
+   </property>
+  </action>
+  <action name="actionManageEnvVars">
+   <property name="text">
+    <string>【環境変数管理】</string>
+   </property>
+  </action>
+  <action name="actionLazarus">
+   <property name="text">
+    <string>【Lazarus】</string>
+   </property>
+  </action>
+  <action name="actionAirExplorer">
+   <property name="text">
+    <string>【AirExplorer】</string>
+   </property>
+  </action>
+  <action name="actionEverything">
+   <property name="text">
+    <string>【Everything】</string>
+   </property>
+  </action>
+  <action name="actionJoinMP4Files">
+   <property name="text">
+    <string>【JoinMP4Files】</string>
+   </property>
+  </action>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>ExplorerForm</class>
+   <extends>QWidget</extends>
+   <header>explorerform.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>SpiderForm</class>
+   <extends>QWidget</extends>
+   <header>spiderform.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

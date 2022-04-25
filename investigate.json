@@ -1,0 +1,40 @@
+{
+  "version": "?",
+  "software": {
+    "AirExplorer": {
+      "version": "4.6.2",
+      "ext": "7z",
+      "path": ".",
+      "url": "https://gitlab.com/spider-explorer/spider-software/-/raw/main/.software/AirExplorer/AirExplorer-4.6.2.7z"
+    },
+    "Everything": {
+      "version": "1.4.1.1015.x64",
+      "ext": "zip",
+      "url": "https://gitlab.com/spider-explorer/spider-software/-/raw/main/.software/Everything/Everything-1.4.1.1015.x64.zip"
+    },
+    "FileSum": {
+      "version": "3.01",
+      "ext": "zip",
+      "path": ".",
+      "url": "https://gitlab.com/spider-explorer/spider-software/-/raw/main/.software/FileSum/FileSum-3.01.zip"
+    },
+    "FolderSizePortable": {
+      "version": "4.9.5.0",
+      "ext": "zip",
+      "path": ".",
+      "url": "https://gitlab.com/spider-explorer/spider-software/-/raw/main/.software/FolderSizePortable/FolderSizePortable-4.9.5.0.zip"
+    },
+    "busybox": {
+      "version": "tilde64",
+      "ext": "7z",
+      "path": ".",
+      "url": "https://gitlab.com/spider-explorer/spider-software/-/raw/main/.software/busybox/busybox-tilde64.7z"
+    },
+    "office_x64": {
+      "version": "7.3.2",
+      "ext": "7z",
+      "path": "/program",
+      "url": "https://gitlab.com/spider-explorer/spider-software/-/raw/main/.software/office_x64/office_x64-7.3.2.7z"
+    }
+  }
+}

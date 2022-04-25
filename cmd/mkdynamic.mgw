@@ -1,0 +1,9 @@
+#! bash -uvx
+set -e
+which qmake.exe || msys2-qt.sh
+bname=`basename $1 .pro`
+rm -rf build-$bname.tmp
+mkdir build-$bname.tmp
+cd build-$bname.tmp
+$MSYSTEM_PREFIX/bin/qmake.exe ../$bname.pro
+make -j $NUMBER_OF_PROCESSORS -f Makefile.Release && rm -rf .qmake* debug Makefile* *_plugin_import.cpp ui_*.h rep_*.h

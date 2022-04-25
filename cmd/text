@@ -1,0 +1,8 @@
+#! bash
+result=0
+output=$(which notepad++ 2>&1 > /dev/null) || result=$?
+if [ ! "$result" = "0" ]; then
+  scoop bucket add extras
+  scoop install notepadplusplus
+fi
+notepad++ $* &

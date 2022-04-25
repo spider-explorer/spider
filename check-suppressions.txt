@@ -1,0 +1,3 @@
+*:3rdparty/WinReg.hpp
+*:3rdparty/prettyprint.hpp
+

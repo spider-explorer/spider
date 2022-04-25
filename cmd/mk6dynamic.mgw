@@ -1,0 +1,9 @@
+#! bash -uvx
+set -e
+which qmake6.exe || msys2-qt.sh
+bname=`basename $1 .pro`
+rm -rf build-$bname.tmp
+mkdir build-$bname.tmp
+cd build-$bname.tmp
+$MSYSTEM_PREFIX/bin/qmake6.exe ../$bname.pro
+make -j $NUMBER_OF_PROCESSORS -f Makefile.Release

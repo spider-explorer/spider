@@ -1,0 +1,27 @@
+#! /usr/bin/bash
+UNAME=`uname`
+if [ "$UNAME" = "Linux" ]; then
+  if [ "$1" = "" ]; then
+    notepad3.exe &
+  fi
+  for f in "$@"
+  do
+    notepad3.exe `wslpath -a -w $f` &
+  done
+elif [ "$UNAME" = "Windows_NT" ]; then
+  if [ "$1" = "" ]; then
+    notepad3.exe &
+  fi
+  for f in "$@"
+  do
+    notepad3.exe `wslpath -a -w $f` &
+  done
+else
+  if [ "$1" = "" ]; then
+   start notepad3.exe
+  fi
+  for f in "$@"
+  do
+    start notepad3.exe $f
+  done
+fi

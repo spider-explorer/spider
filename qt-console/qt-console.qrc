@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>template.pro</file>
+        <file>utf8LogHandler.h</file>
+        <file>template.cpp</file>
+    </qresource>
+</RCC>

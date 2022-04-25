@@ -1,0 +1,8 @@
+{
+    "[General]": {
+        "test3": "AAAACgAAAAAcAHYAYQBsAHUAZQAgAG8AZgAgAHQAZQBzAHQAMw== \"value of test3\""
+    },
+    "test3": {
+        "test4": "AAAACgAAAAAcAHYAYQBsAHUAZQAgAG8AZgAgAHQAZQBzAHQANA== \"value of test4\""
+    }
+}

@@ -1,0 +1,6 @@
+#! bash -uvx
+branch=`git rev-parse --abbrev-ref HEAD`
+git commit -a -m.
+git push origin HEAD:${branch}
+git status
+

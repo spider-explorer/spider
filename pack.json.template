@@ -1,0 +1,36 @@
+{
+    "version": "<ts>",
+    "description": "",
+    "homepage": "",
+    "license": "MIT",
+    "depends": [
+        "main/7zip",
+        "main/git",
+        "main/elvish",
+        "main/file",
+        "main/astyle",
+        "main/nyagos",
+        "main/racket"
+    ],
+    url: [
+        "https://gitlab.com/javacommons/spider/-/raw/main/spider-<ts>.7z"
+    ],
+    "hash": [
+        "<sum1>"
+    ],
+    "bin": [
+        [
+            "spider-x86_64-static.exe",
+            "spider",
+            "--dumy"
+        ]
+    ],
+    "shortcuts": [
+        [
+            "spider-x86_64-static.exe",
+            "Spider",
+            "--dummy"
+        ]
+    ],
+    "persist": "temp"
+}

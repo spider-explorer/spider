@@ -1,0 +1,4 @@
+#! bash
+#msys2-emacs.mgw > /dev/null 2>&1
+emacs.exe $* &
+

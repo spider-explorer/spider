@@ -1,0 +1,282 @@
+{
+  "type": "File",
+  "errors": [],
+  "program": {
+    "type": "Program",
+    "sourceType": "module",
+    "interpreter": null,
+    "body": [
+      {
+        "type": "ImportDeclaration",
+        "importKind": "value",
+        "specifiers": [
+          {
+            "type": "ImportSpecifier",
+            "imported": {
+              "type": "Identifier",
+              "name": "int"
+            },
+            "importKind": "value",
+            "local": {
+              "type": "Identifier",
+              "name": "int"
+            }
+          },
+          {
+            "type": "ImportSpecifier",
+            "imported": {
+              "type": "Identifier",
+              "name": "double"
+            },
+            "importKind": "value",
+            "local": {
+              "type": "Identifier",
+              "name": "double"
+            }
+          }
+        ],
+        "source": {
+          "type": "StringLiteral",
+          "extra": {
+            "rawValue": "./xchange.types.ts",
+            "raw": "'./xchange.types.ts'"
+          },
+          "value": "./xchange.types.ts"
+        },
+        "leadingComments": [
+          {
+            "type": "CommentLine",
+            "value": " @ts-ignore"
+          }
+        ]
+      },
+      {
+        "type": "ExportNamedDeclaration",
+        "exportKind": "type",
+        "specifiers": [],
+        "source": null,
+        "declaration": {
+          "type": "ClassDeclaration",
+          "id": {
+            "type": "Identifier",
+            "name": "Rectangle"
+          },
+          "superClass": null,
+          "body": {
+            "type": "ClassBody",
+            "body": [
+              {
+                "type": "ClassProperty",
+                "static": false,
+                "key": {
+                  "type": "Identifier",
+                  "name": "width"
+                },
+                "computed": false,
+                "typeAnnotation": {
+                  "type": "TSTypeAnnotation",
+                  "typeAnnotation": {
+                    "type": "TSTypeReference",
+                    "typeName": {
+                      "type": "Identifier",
+                      "name": "int"
+                    }
+                  }
+                },
+                "value": null
+              },
+              {
+                "type": "ClassProperty",
+                "static": false,
+                "key": {
+                  "type": "Identifier",
+                  "name": "height"
+                },
+                "computed": false,
+                "typeAnnotation": {
+                  "type": "TSTypeAnnotation",
+                  "typeAnnotation": {
+                    "type": "TSTypeReference",
+                    "typeName": {
+                      "type": "Identifier",
+                      "name": "int"
+                    }
+                  }
+                },
+                "value": null
+              },
+              {
+                "type": "TSDeclareMethod",
+                "static": false,
+                "key": {
+                  "type": "Identifier",
+                  "name": "constructor"
+                },
+                "computed": false,
+                "kind": "constructor",
+                "id": null,
+                "generator": false,
+                "async": false,
+                "params": [
+                  {
+                    "type": "Identifier",
+                    "name": "width",
+                    "typeAnnotation": {
+                      "type": "TSTypeAnnotation",
+                      "typeAnnotation": {
+                        "type": "TSTypeReference",
+                        "typeName": {
+                          "type": "Identifier",
+                          "name": "int"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "type": "Identifier",
+                    "name": "height",
+                    "typeAnnotation": {
+                      "type": "TSTypeAnnotation",
+                      "typeAnnotation": {
+                        "type": "TSTypeReference",
+                        "typeName": {
+                          "type": "Identifier",
+                          "name": "int"
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "TSDeclareMethod",
+                "static": false,
+                "key": {
+                  "type": "Identifier",
+                  "name": "area"
+                },
+                "computed": false,
+                "kind": "method",
+                "id": null,
+                "generator": false,
+                "async": false,
+                "params": [],
+                "returnType": {
+                  "type": "TSTypeAnnotation",
+                  "typeAnnotation": {
+                    "type": "TSTypeReference",
+                    "typeName": {
+                      "type": "Identifier",
+                      "name": "int"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "declare": true
+        }
+      },
+      {
+        "type": "ExportNamedDeclaration",
+        "exportKind": "type",
+        "specifiers": [],
+        "source": null,
+        "declaration": {
+          "type": "VariableDeclaration",
+          "declarations": [
+            {
+              "type": "VariableDeclarator",
+              "id": {
+                "type": "Identifier",
+                "name": "rect1",
+                "typeAnnotation": {
+                  "type": "TSTypeAnnotation",
+                  "typeAnnotation": {
+                    "type": "TSTypeReference",
+                    "typeName": {
+                      "type": "Identifier",
+                      "name": "Rectangle"
+                    }
+                  }
+                }
+              },
+              "init": null
+            }
+          ],
+          "kind": "var",
+          "declare": true
+        }
+      },
+      {
+        "type": "ExportNamedDeclaration",
+        "exportKind": "type",
+        "specifiers": [],
+        "source": null,
+        "declaration": {
+          "type": "VariableDeclaration",
+          "declarations": [
+            {
+              "type": "VariableDeclarator",
+              "id": {
+                "type": "Identifier",
+                "name": "rect2",
+                "typeAnnotation": {
+                  "type": "TSTypeAnnotation",
+                  "typeAnnotation": {
+                    "type": "TSTypeReference",
+                    "typeName": {
+                      "type": "Identifier",
+                      "name": "Rectangle"
+                    }
+                  }
+                }
+              },
+              "init": null
+            }
+          ],
+          "kind": "let",
+          "declare": true
+        }
+      },
+      {
+        "type": "ExportNamedDeclaration",
+        "exportKind": "type",
+        "specifiers": [],
+        "source": null,
+        "declaration": {
+          "type": "VariableDeclaration",
+          "declarations": [
+            {
+              "type": "VariableDeclarator",
+              "id": {
+                "type": "Identifier",
+                "name": "rect3",
+                "typeAnnotation": {
+                  "type": "TSTypeAnnotation",
+                  "typeAnnotation": {
+                    "type": "TSTypeReference",
+                    "typeName": {
+                      "type": "Identifier",
+                      "name": "Rectangle"
+                    }
+                  }
+                }
+              },
+              "init": null
+            }
+          ],
+          "kind": "const",
+          "declare": true
+        }
+      }
+    ],
+    "directives": []
+  },
+  "comments": [
+    {
+      "type": "CommentLine",
+      "value": " @ts-ignore"
+    }
+  ]
+}

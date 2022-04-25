@@ -1,0 +1,4 @@
+LIBRARY main-x86_64.dll
+EXPORTS
+entry1
+entry2

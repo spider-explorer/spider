@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>splash.png</file>
+        <file>spider2.version.txt</file>
+        <file>one-moment-please.png</file>
+        <file>a-hand-with-a-paintbrush-sticks-out-of-the-laptop-screen.png</file>
+    </qresource>
+</RCC>

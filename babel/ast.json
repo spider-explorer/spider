@@ -1,0 +1,158 @@
+{
+  "type": "File",
+  "errors": [],
+  "program": {
+    "type": "Program",
+    "sourceType": "module",
+    "interpreter": null,
+    "body": [
+      {
+        "type": "ImportDeclaration",
+        "importKind": "value",
+        "specifiers": [
+          {
+            "type": "ImportDefaultSpecifier",
+            "local": {
+              "type": "Identifier",
+              "name": "babel"
+            }
+          }
+        ],
+        "source": {
+          "type": "StringLiteral",
+          "extra": {
+            "rawValue": "https://jspm.dev/@babel/standalone",
+            "raw": "\"https://jspm.dev/@babel/standalone\""
+          },
+          "value": "https://jspm.dev/@babel/standalone"
+        }
+      },
+      {
+        "type": "VariableDeclaration",
+        "declarations": [
+          {
+            "type": "VariableDeclarator",
+            "id": {
+              "type": "Identifier",
+              "name": "code"
+            },
+            "init": {
+              "type": "TemplateLiteral",
+              "expressions": [],
+              "quasis": [
+                {
+                  "type": "TemplateElement",
+                  "value": {
+                    "raw": "var x = 5",
+                    "cooked": "var x = 5"
+                  },
+                  "tail": true
+                }
+              ]
+            }
+          }
+        ],
+        "kind": "const"
+      },
+      {
+        "type": "VariableDeclaration",
+        "declarations": [
+          {
+            "type": "VariableDeclarator",
+            "id": {
+              "type": "Identifier",
+              "name": "transformed"
+            },
+            "init": {
+              "type": "MemberExpression",
+              "object": {
+                "type": "CallExpression",
+                "callee": {
+                  "type": "MemberExpression",
+                  "object": {
+                    "type": "Identifier",
+                    "name": "babel"
+                  },
+                  "computed": false,
+                  "property": {
+                    "type": "Identifier",
+                    "name": "transform"
+                  }
+                },
+                "arguments": [
+                  {
+                    "type": "Identifier",
+                    "name": "code"
+                  },
+                  {
+                    "type": "ObjectExpression",
+                    "properties": [
+                      {
+                        "type": "ObjectProperty",
+                        "method": false,
+                        "key": {
+                          "type": "Identifier",
+                          "name": "presets"
+                        },
+                        "computed": false,
+                        "shorthand": false,
+                        "value": {
+                          "type": "ArrayExpression",
+                          "elements": [
+                            {
+                              "type": "StringLiteral",
+                              "extra": {
+                                "rawValue": "env",
+                                "raw": "\"env\""
+                              },
+                              "value": "env"
+                            }
+                          ]
+                        }
+                      }
+                    ],
+                    "extra": {
+                      "trailingComma": 145
+                    }
+                  }
+                ]
+              },
+              "computed": false,
+              "property": {
+                "type": "Identifier",
+                "name": "code"
+              }
+            }
+          }
+        ],
+        "kind": "const"
+      },
+      {
+        "type": "ExpressionStatement",
+        "expression": {
+          "type": "CallExpression",
+          "callee": {
+            "type": "MemberExpression",
+            "object": {
+              "type": "Identifier",
+              "name": "console"
+            },
+            "computed": false,
+            "property": {
+              "type": "Identifier",
+              "name": "log"
+            }
+          },
+          "arguments": [
+            {
+              "type": "Identifier",
+              "name": "transformed"
+            }
+          ]
+        }
+      }
+    ],
+    "directives": []
+  },
+  "comments": []
+}

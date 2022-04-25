@@ -1,0 +1,190 @@
+{
+  "version": "?",
+  "software": {
+    "AirExplorer": {
+      "version": "4.6.2",
+      "ext": "7z",
+      "path": ".",
+      "url": "https://gitlab.com/spider-explorer/spider-software/-/raw/main/.software/AirExplorer/AirExplorer-4.6.2.7z"
+    },
+    "Everything": {
+      "version": "1.4.1.1015.x64",
+      "ext": "zip",
+      "url": "https://gitlab.com/spider-explorer/spider-software/-/raw/main/.software/Everything/Everything-1.4.1.1015.x64.zip"
+    },
+    "FileSum": {
+      "version": "3.01",
+      "ext": "zip",
+      "path": ".",
+      "url": "https://gitlab.com/spider-explorer/spider-software/-/raw/main/.software/FileSum/FileSum-3.01.zip"
+    },
+    "FolderSizePortable": {
+      "version": "4.9.5.0",
+      "ext": "zip",
+      "path": ".",
+      "url": "https://gitlab.com/spider-explorer/spider-software/-/raw/main/.software/FolderSizePortable/FolderSizePortable-4.9.5.0.zip"
+    },
+    "busybox": {
+      "version": "tilde64",
+      "ext": "7z",
+      "path": ".",
+      "url": "https://gitlab.com/spider-explorer/spider-software/-/raw/main/.software/busybox/busybox-tilde64.7z"
+    },
+    "office_x64": {
+      "version": "7.3.2",
+      "ext": "7z",
+      "path": "/program",
+      "url": "https://gitlab.com/spider-explorer/spider-software/-/raw/main/.software/office_x64/office_x64-7.3.2.7z"
+    },
+    "gh": {
+      "version": "2.8.0",
+      "ext": "7z",
+      "path": "/bin",
+      "url": "https://gitlab.com/spider-explorer/spider-software/-/raw/main/.software/gh/gh-2.8.0.7z"
+    },
+    "googlechrome": {
+      "version": "100.0.4896.127",
+      "ext": "7z",
+      "path": ".",
+      "url": "https://gitlab.com/spider-explorer/spider-software/-/raw/main/.software/googlechrome/googlechrome-100.0.4896.127.7z"
+    },
+    "wixtoolset": {
+      "version": "3.11.2",
+      "ext": "7z",
+      "path": ".",
+      "url": "https://gitlab.com/spider-explorer/spider-software/-/raw/main/.software/wixtoolset/wixtoolset-3.11.2.7z"
+    },
+    "uncrustify": {
+      "version": "0.74.0",
+      "ext": "7z",
+      "path": "/bin",
+      "url": "https://gitlab.com/spider-explorer/spider-software/-/raw/main/.software/uncrustify/uncrustify-0.74.0.7z"
+    },
+    "geany": {
+      "version": "1.38",
+      "ext": "7z",
+      "path": "/bin",
+      "url": "https://gitlab.com/spider-explorer/spider-software/-/raw/main/.software/geany/geany-1.38.7z"
+    },
+    "deno": {
+      "version": "1.21.0",
+      "ext": "7z",
+      "path": ".",
+      "url": "https://gitlab.com/spider-explorer/spider-software/-/raw/main/.software/deno/deno-1.21.0.7z"
+    },
+    "vscode": {
+      "version": "1.66.2",
+      "ext": "7z",
+      "path": "/bin;.",
+      "url": "https://gitlab.com/spider-explorer/spider-software/-/raw/main/.software/vscode/vscode-1.66.2.7z"
+    },
+    "cmake": {
+      "version": "3.23.1",
+      "ext": "7z",
+      "path": "/bin",
+      "url": "https://gitlab.com/spider-explorer/spider-software/-/raw/main/.software/cmake/cmake-3.23.1.7z"
+    },
+    "premake": {
+      "version": "5.0.0-beta1",
+      "ext": "7z",
+      "path": ".",
+      "url": "https://gitlab.com/spider-explorer/spider-software/-/raw/main/.software/premake/premake-5.0.0-beta1.7z"
+    },
+    "make": {
+      "version": "4.3",
+      "ext": "7z",
+      "path": "/bin",
+      "url": "https://gitlab.com/spider-explorer/spider-software/-/raw/main/.software/make/make-4.3.7z"
+    },
+    "file": {
+      "version": "5.38",
+      "ext": "7z",
+      "path": ".",
+      "url": "https://gitlab.com/spider-explorer/spider-software/-/raw/main/.software/file/file-5.38.7z"
+    },
+    "astyle": {
+      "version": "3.1",
+      "ext": "7z",
+      "path": "/bin",
+      "url": "https://gitlab.com/spider-explorer/spider-software/-/raw/main/.software/astyle/astyle-3.1.7z"
+    },
+    "7zip": {
+      "version": "21.07",
+      "ext": "7z",
+      "path": ".",
+      "url": "https://gitlab.com/spider-explorer/spider-software/-/raw/main/.software/7zip/7zip-21.07.7z"
+    },
+    "git": {
+      "version": "2.36.0.windows.1",
+      "ext": "7z",
+      "path": "/cmd",
+      "url": "https://gitlab.com/spider-explorer/spider-software/-/raw/main/.software/git/git-2.36.0.windows.1.7z"
+    },
+    "nyagos": {
+      "version": "4.4.11_0",
+      "ext": "7z",
+      "path": ".",
+      "url": "https://gitlab.com/spider-explorer/spider-software/-/raw/main/.software/nyagos/nyagos-4.4.11_0.7z"
+    },
+    "jq": {
+      "version": "1.6",
+      "ext": "7z",
+      "path": ".",
+      "url": "https://gitlab.com/spider-explorer/spider-software/-/raw/main/.software/jq/jq-1.6.7z"
+    },
+    "windows-terminal": {
+      "version": "1.12.10982.0",
+      "ext": "7z",
+      "path": ".",
+      "url": "https://gitlab.com/spider-explorer/spider-software/-/raw/main/.software/windows-terminal/windows-terminal-1.12.10982.0.7z"
+    },
+    "sqlitestudio": {
+      "version": "3.3.3",
+      "ext": "7z",
+      "path": ".",
+      "url": "https://gitlab.com/spider-explorer/spider-software/-/raw/main/.software/sqlitestudio/sqlitestudio-3.3.3.7z"
+    },
+    "rapidee": {
+      "version": "9.2.937",
+      "ext": "7z",
+      "path": ".",
+      "url": "https://gitlab.com/spider-explorer/spider-software/-/raw/main/.software/rapidee/rapidee-9.2.937.7z"
+    },
+    "notepad3": {
+      "version": "5.21.1129.1",
+      "ext": "7z",
+      "path": ".",
+      "url": "https://gitlab.com/spider-explorer/spider-software/-/raw/main/.software/notepad3/notepad3-5.21.1129.1.7z"
+    },
+    "smartgit": {
+      "version": "21.2.2",
+      "ext": "7z",
+      "path": "/bin",
+      "url": "https://gitlab.com/spider-explorer/spider-software/-/raw/main/.software/smartgit/smartgit-21.2.2.7z"
+    },
+    "wget": {
+      "version": "1.21.3",
+      "ext": "7z",
+      "path": ".",
+      "url": "https://gitlab.com/spider-explorer/spider-software/-/raw/main/.software/wget/wget-1.21.3.7z"
+    },
+    "curl": {
+      "version": "7.82.0_4",
+      "ext": "7z",
+      "path": "/bin",
+      "url": "https://gitlab.com/spider-explorer/spider-software/-/raw/main/.software/curl/curl-7.82.0_4.7z"
+    },
+    "qownnotes": {
+      "version": "22.4.2",
+      "ext": "7z",
+      "path": ".",
+      "url": "https://gitlab.com/spider-explorer/spider-software/-/raw/main/.software/qownnotes/qownnotes-22.4.2.7z"
+    },
+    "sed": {
+      "version": "4.8",
+      "ext": "7z",
+      "path": ".",
+      "url": "https://gitlab.com/spider-explorer/spider-software/-/raw/main/.software/sed/sed-4.8.7z"
+    }
+  }
+}

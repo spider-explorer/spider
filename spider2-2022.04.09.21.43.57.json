@@ -1,0 +1,44 @@
+{
+    "version": "2022.04.09.21.43.57",
+    "description": "",
+    "homepage": "",
+    "license": "MIT",
+    "depends": [
+        "main/7zip",
+        "main/git",
+        "main/vim",
+        "main/llvm",
+        "main/mono",
+        "main/gcc",
+        "main/make",
+        "main/cmake",
+        "main/python",
+        "main/jq",
+        "main/unzip",
+        "main/zip",
+        "main/file",
+        "main/astyle",
+        "main/nyagos"
+    ],
+    url: [
+        "https://gitlab.com/javacommons/spider-release/-/raw/main/spider2-2022.04.09.21.43.57.7z"
+    ],
+    "hash": [
+        "f12bb2d6db292d6eb0cf5025c692ef7a223d0912d3f4999a7eef23b4bb58dc58"
+    ],
+    "bin": [
+        [
+            "spider2-x86_64-static.exe",
+            "spider2",
+            "--dumy"
+        ]
+    ],
+    "shortcuts": [
+        [
+            "spider2-x86_64-static.exe",
+            "Spider2",
+            "--dummy"
+        ]
+    ],
+    "persist": "temp"
+}

@@ -1,0 +1,3 @@
+#! bash
+which vim.exe &> /dev/null || pacman -S --needed --noconfirm --disable-download-timeout vim
+vim.exe $*

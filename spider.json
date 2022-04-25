@@ -1,0 +1,29 @@
+{
+    "version": "2022.04.25.16.05.27",
+    "description": "",
+    "homepage": "",
+    "license": "MIT",
+    "depends": [
+    ],
+    "url": [
+        "https://github.com/javacommons/wsl/releases/download/v2022.04.25.16.05.27/spider-v2022.04.25.16.05.27.zip"
+    ],
+    "hash": [
+        "847fb5175fe1f3338e1ccea3680fedd8d32ce82d1d20d3ff2147b145885848a7"
+    ],
+    "bin": [
+        [
+            "boot-x86_64-static.exe",
+            "spider",
+            "--dumy"
+        ]
+    ],
+    "shortcuts": [
+        [
+            "boot-x86_64-static.exe",
+            "Spider",
+            "--dummy"
+        ]
+    ],
+    "persist": "temp"
+}

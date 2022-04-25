@@ -1,0 +1,8 @@
+BasedOnStyle: LLVM
+Language: Cpp
+Standard: c++17
+BreakBeforeBraces: Allman
+IndentWidth: 4
+AccessModifierOffset: -4
+ColumnLimit: 120
+MaxEmptyLinesToKeep: 0
