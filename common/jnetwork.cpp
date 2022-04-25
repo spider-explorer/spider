@@ -5,13 +5,6 @@ JNetworkManager::JNetworkManager(QObject *parent)
 {
 }
 
-#if 0x0
-QNetworkReply *JNetworkManager::lastReply()
-{
-    return m_lastReply;
-}
-#endif
-
 QVariantMap &JNetworkManager::batchResult()
 {
     return m_lastResult;
@@ -31,30 +24,6 @@ QNetworkReply *JNetworkManager::headRequest(const QNetworkRequest &request, bool
     }
     return reply;
 }
-
-#if 0x0
-QNetworkReply *JNetworkManager::headBatch(const QNetworkRequest &request)
-{
-    QNetworkRequest request2(request);
-    request2.setAttribute(QNetworkRequest::RedirectPolicyAttribute, true);
-    QNetworkReply *reply = this->head(request2);
-    while (!reply->isFinished())
-    {
-        qApp->processEvents();
-    }
-    if(m_lastReply != nullptr)
-    {
-        m_lastReply->deleteLater();
-    }
-    m_lastReply = reply;
-    return reply;
-}
-
-QNetworkReply *JNetworkManager::headBatch(const QUrl &url)
-{
-    return this->headBatch(QNetworkRequest(url));
-}
-#endif
 
 QVariantMap JNetworkManager::headBatch(const QNetworkRequest &request)
 {
@@ -79,7 +48,7 @@ QVariantMap JNetworkManager::headBatch(const QNetworkRequest &request)
     result["httpStatus"] = httpStatus;
     result["body"] = body;
     m_lastResult = result;
-    //qDebug() << "m_lastResult:" << m_lastResult;
+    reply->deleteLater();
     return result;
 }
 
@@ -130,7 +99,7 @@ QVariantMap JNetworkManager::getBatch(const QNetworkRequest &request, NetworkIdl
     result["httpStatus"] = httpStatus;
     result["body"] = body;
     m_lastResult = result;
-    //qDebug() << "m_lastResult:" << m_lastResult;
+    reply->deleteLater();
     return result;
 }
 
@@ -235,7 +204,7 @@ QVariantMap JNetworkManager::postBatch(const QNetworkRequest &request, const QBy
     result["httpStatus"] = httpStatus;
     result["body"] = body;
     m_lastResult = result;
-    //qDebug() << "m_lastResult:" << m_lastResult;
+    reply->deleteLater();
     return result;
 }
 
