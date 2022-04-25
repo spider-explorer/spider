@@ -7,6 +7,8 @@ x86_64-win64
 *.orig
 *.dll
 *.exe
+*.ilk
+*.pdb
 *.tmp
 *.torrent
 *.user
