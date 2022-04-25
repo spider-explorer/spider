@@ -13,7 +13,7 @@ ts=`date "+%Y.%m.%d.%H.%M.%S"`
 echo $ts > main/spider2.version.txt
 UNAME=`uname`
 mkdir -p upload.tmp/spider-release
-7z a -tzip upload.tmp/spider-release/spider-v$ts.zip *-static.exe *-static.dll scoop-sw-list.ini scoop-bucket-map.json cmd spiderbrowser temp -x!temp/*
+7z a -tzip upload.tmp/spider-release/spider-v$ts.zip *-static.exe *-static.dll scoop-sw-list.ini scoop-bucket-map.json cmd temp -x!temp/*
 sha256sum upload.tmp/spider-release/spider-v$ts.zip
 sum1=`sha256sum upload.tmp/spider-release/spider-v$ts.zip | awk '{print $1}'`
 #sum1=`sha256-x86_64-static.exe upload.tmp/spider-release/spider-v$ts.zip`
@@ -27,7 +27,7 @@ cat << EOS > spider.json
     "depends": [
     ],
     "url": [
-        "https://github.com/javacommons/wsl/releases/download/v$ts/spider-v$ts.zip"
+        "https://github.com/spider-explorer/spider/releases/download/v$ts/spider-v$ts.zip"
     ],
     "hash": [
         "$sum1"
@@ -50,10 +50,9 @@ cat << EOS > spider.json
 }
 EOS
 echo $GITHUB_ALL | gh auth login --with-token
-gh release create v$ts "upload.tmp/spider-release/spider-v$ts.zip" --repo javacommons/wsl \
-   --generate-notes --target main
+gh release create v$ts "upload.tmp/spider-release/spider-v$ts.zip" --generate-notes --target main
 cp spider.json upload.tmp/spider-release/spider-v$ts.json
-./gitlab-console-x86_64-static.exe --project javacommons/spider-release --action upload spider.json upload.tmp/spider-release/spider-v$ts.json
+#./gitlab-console-x86_64-static.exe --project javacommons/spider-release --action upload spider.json upload.tmp/spider-release/spider-v$ts.json
 git add .
 git commit -m"Spider Explorer v$ts"
 git tag -a v$ts -mv$ts

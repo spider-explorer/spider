@@ -11,28 +11,20 @@ class JNetworkManager: public QNetworkAccessManager
     Q_OBJECT
 public:
     explicit JNetworkManager(QObject *parent=nullptr);
-    //QNetworkReply *lastReply();
-    QVariantMap &lastResult();
+    QVariantMap &batchResult();
     // HEAD
-protected:
-    QNetworkReply *headBatch(const QNetworkRequest &request);
-    QNetworkReply *headBatch(const QUrl &url);
-public:
-    QVariantMap headBatchAsMap(const QNetworkRequest &request);
-    QVariantMap headBatchAsMap(const QUrl &url);
+    QNetworkReply *headRequest(const QNetworkRequest &request, bool batch);
+    QVariantMap headBatch(const QNetworkRequest &request);
+    QVariantMap headBatch(const QUrl &url);
     // GET
-protected:
-    QNetworkReply *getBatch(
+    QNetworkReply *getRequest(
+            const QNetworkRequest &request,
+            bool batch,
+            NetworkIdleCallback callback = nullptr);
+    QVariantMap getBatch(
             const QNetworkRequest &request,
             NetworkIdleCallback callback = nullptr);
-    QNetworkReply *getBatch(
-            const QUrl &url,
-            NetworkIdleCallback callback = nullptr);
-public:
-    QVariantMap getBatchAsMap(
-            const QNetworkRequest &request,
-            NetworkIdleCallback callback = nullptr);
-    QVariantMap getBatchAsMap(
+    QVariantMap getBatch(
             const QUrl &url,
             NetworkIdleCallback callback = nullptr);
     QString getBatchAsText(
@@ -56,24 +48,18 @@ public:
             const QUrl &url,
             NetworkIdleCallback callback = nullptr);
     // POST
-protected:
-    QNetworkReply *postBatch(
+    QNetworkReply *postRequest(
+            const QNetworkRequest &request,
+            bool batch,
+            const QByteArray &contentType,
+            const QByteArray &data,
+            NetworkIdleCallback callback = nullptr);
+    QVariantMap postBatch(
             const QNetworkRequest &request,
             const QByteArray &contentType,
             const QByteArray &data,
             NetworkIdleCallback callback = nullptr);
-    QNetworkReply *postBatch(
-            const QUrl &url,
-            const QByteArray &contentType,
-            const QByteArray &data,
-            NetworkIdleCallback callback = nullptr);
-public:
-    QVariantMap postBatchAsMap(
-            const QNetworkRequest &request,
-            const QByteArray &contentType,
-            const QByteArray &data,
-            NetworkIdleCallback callback = nullptr);
-    QVariantMap postBatchAsMap(
+    QVariantMap postBatch(
             const QUrl &url,
             const QByteArray &contentType,
             const QByteArray &data,
@@ -87,7 +73,7 @@ public:
             const QVariant &data,
             NetworkIdleCallback callback = nullptr);
 private:
-    QNetworkReply *m_lastReply = nullptr;
+    //QNetworkReply *m_lastReply = nullptr;
     QVariantMap m_lastResult;
 };
 

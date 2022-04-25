@@ -12,11 +12,27 @@ QNetworkReply *JNetworkManager::lastReply()
 }
 #endif
 
-QVariantMap &JNetworkManager::lastResult()
+QVariantMap &JNetworkManager::batchResult()
 {
     return m_lastResult;
 }
 
+QNetworkReply *JNetworkManager::headRequest(const QNetworkRequest &request, bool batch)
+{
+    QNetworkRequest request2(request);
+    request2.setAttribute(QNetworkRequest::RedirectPolicyAttribute, true);
+    QNetworkReply *reply = this->head(request2);
+    if(batch)
+    {
+        while (!reply->isFinished())
+        {
+            qApp->processEvents();
+        }
+    }
+    return reply;
+}
+
+#if 0x0
 QNetworkReply *JNetworkManager::headBatch(const QNetworkRequest &request)
 {
     QNetworkRequest request2(request);
@@ -38,11 +54,12 @@ QNetworkReply *JNetworkManager::headBatch(const QUrl &url)
 {
     return this->headBatch(QNetworkRequest(url));
 }
+#endif
 
-QVariantMap JNetworkManager::headBatchAsMap(const QNetworkRequest &request)
+QVariantMap JNetworkManager::headBatch(const QNetworkRequest &request)
 {
     QVariantMap result;
-    QNetworkReply *reply = this->headBatch(request);
+    QNetworkReply *reply = this->headRequest(request, true);
     QByteArray body;
     int httpStatus = reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
     if (httpStatus < 200 || httpStatus >= 300)
@@ -66,42 +83,34 @@ QVariantMap JNetworkManager::headBatchAsMap(const QNetworkRequest &request)
     return result;
 }
 
-QVariantMap JNetworkManager::headBatchAsMap(const QUrl &url)
+QVariantMap JNetworkManager::headBatch(const QUrl &url)
 {
-    return this->headBatchAsMap(QNetworkRequest(url));
+    return this->headBatch(QNetworkRequest(url));
 }
 
-QNetworkReply *JNetworkManager::getBatch(const QNetworkRequest &request, NetworkIdleCallback callback)
+QNetworkReply *JNetworkManager::getRequest(const QNetworkRequest &request, bool batch, NetworkIdleCallback callback)
 {
     QNetworkRequest request2(request);
     request2.setAttribute(QNetworkRequest::RedirectPolicyAttribute, true);
     QNetworkReply *reply = this->get(request2);
-    while (!reply->isFinished())
+    if(batch)
     {
-        qApp->processEvents();
-        if(callback != nullptr)
+        while (!reply->isFinished())
         {
-            callback(reply);
+            qApp->processEvents();
+            if(callback != nullptr)
+            {
+                callback(reply);
+            }
         }
     }
-    if(m_lastReply != nullptr)
-    {
-        m_lastReply->deleteLater();
-    }
-    m_lastReply = reply;
     return reply;
 }
 
-QNetworkReply *JNetworkManager::getBatch(const QUrl &url, NetworkIdleCallback callback)
-{
-    QNetworkRequest request(url);
-    return this->getBatch(request, callback);
-}
-
-QVariantMap JNetworkManager::getBatchAsMap(const QNetworkRequest &request, NetworkIdleCallback callback)
+QVariantMap JNetworkManager::getBatch(const QNetworkRequest &request, NetworkIdleCallback callback)
 {
     QVariantMap result;
-    QNetworkReply *reply = this->getBatch(request, callback);
+    QNetworkReply *reply = this->getRequest(request, true, callback);
     QByteArray body;
     int httpStatus = reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
     if (httpStatus < 200 || httpStatus >= 300)
@@ -125,14 +134,14 @@ QVariantMap JNetworkManager::getBatchAsMap(const QNetworkRequest &request, Netwo
     return result;
 }
 
-QVariantMap JNetworkManager::getBatchAsMap(const QUrl &url, NetworkIdleCallback callback)
+QVariantMap JNetworkManager::getBatch(const QUrl &url, NetworkIdleCallback callback)
 {
-    return this->getBatchAsMap(QNetworkRequest(url), callback);
+    return this->getBatch(QNetworkRequest(url), callback);
 }
 
 QString JNetworkManager::getBatchAsText(const QNetworkRequest &request, NetworkIdleCallback callback)
 {
-    QVariantMap result = this->getBatchAsMap(request, callback);
+    QVariantMap result = this->getBatch(request, callback);
     return QString::fromUtf8(result["body"].toByteArray());
 }
 
@@ -147,7 +156,7 @@ bool JNetworkManager::getBatchAsFile(const QNetworkRequest &request, QString fil
     if (info.exists())
         return true;
     QDir(info.absolutePath()).mkpath(".");
-    QVariantMap result = this->getBatchAsMap(request, callback);
+    QVariantMap result = this->getBatch(request, callback);
     int httpStatus = result["httpStatus"].toInt();
     if (httpStatus < 200 || httpStatus >= 300)
     {
@@ -174,7 +183,7 @@ bool JNetworkManager::getBatchAsFile(const QUrl &url, QString filePath, NetworkI
 
 QVariant JNetworkManager::getBatchAsJson(const QNetworkRequest &request, NetworkIdleCallback callback)
 {
-    QVariantMap result = this->getBatchAsMap(request, callback);
+    QVariantMap result = this->getBatch(request, callback);
     return QJsonDocument::fromJson(result["body"].toByteArray()).toVariant();
 }
 
@@ -183,37 +192,30 @@ QVariant JNetworkManager::getBatchAsJson(const QUrl &url, NetworkIdleCallback ca
     return this->getBatchAsJson(QNetworkRequest(url), callback);
 }
 
-QNetworkReply *JNetworkManager::postBatch(const QNetworkRequest &request, const QByteArray &contentType, const QByteArray &data, NetworkIdleCallback callback)
+QNetworkReply *JNetworkManager::postRequest(const QNetworkRequest &request, bool batch, const QByteArray &contentType, const QByteArray &data, NetworkIdleCallback callback)
 {
     QNetworkRequest request2(request);
     request2.setAttribute(QNetworkRequest::RedirectPolicyAttribute, true);
     request2.setHeader(QNetworkRequest::ContentTypeHeader, contentType);
     QNetworkReply *reply = this->post(request2, data);
-    while (!reply->isFinished())
+    if(batch)
     {
-        qApp->processEvents();
-        if(callback != nullptr)
+        while (!reply->isFinished())
         {
-            callback(reply);
+            qApp->processEvents();
+            if(callback != nullptr)
+            {
+                callback(reply);
+            }
         }
     }
-    if(m_lastReply != nullptr)
-    {
-        m_lastReply->deleteLater();
-    }
-    m_lastReply = reply;
     return reply;
 }
 
-QNetworkReply *JNetworkManager::postBatch(const QUrl &url, const QByteArray &contentType, const QByteArray &data, NetworkIdleCallback callback)
-{
-    return this->postBatch(QNetworkRequest(url), contentType, data, callback);
-}
-
-QVariantMap JNetworkManager::postBatchAsMap(const QNetworkRequest &request, const QByteArray &contentType, const QByteArray &data, NetworkIdleCallback callback)
+QVariantMap JNetworkManager::postBatch(const QNetworkRequest &request, const QByteArray &contentType, const QByteArray &data, NetworkIdleCallback callback)
 {
     QVariantMap result;
-    QNetworkReply *reply = this->postBatch(request, contentType, data, callback);
+    QNetworkReply *reply = this->postRequest(request, true, contentType, data, callback);
     QByteArray body;
     int httpStatus = reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
     if (httpStatus < 200 || httpStatus >= 300)
@@ -237,15 +239,15 @@ QVariantMap JNetworkManager::postBatchAsMap(const QNetworkRequest &request, cons
     return result;
 }
 
-QVariantMap JNetworkManager::postBatchAsMap(const QUrl &url, const QByteArray &contentType, const QByteArray &data, NetworkIdleCallback callback)
+QVariantMap JNetworkManager::postBatch(const QUrl &url, const QByteArray &contentType, const QByteArray &data, NetworkIdleCallback callback)
 {
-    return this->postBatchAsMap(QNetworkRequest(url), contentType, data, callback);
+    return this->postBatch(QNetworkRequest(url), contentType, data, callback);
 }
 
 
 QVariant JNetworkManager::postBatchJsonRequest(const QNetworkRequest &request, const QVariant &data, NetworkIdleCallback callback)
 {
-    QVariantMap result = this->postBatchAsMap(request, "application/json", QJsonDocument::fromVariant(data).toJson(), callback);
+    QVariantMap result = this->postBatch(request, "application/json", QJsonDocument::fromVariant(data).toJson(), callback);
     return QJsonDocument::fromJson(result["body"].toByteArray()).toVariant();
 }
 
