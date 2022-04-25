@@ -1,4 +1,4 @@
-#ifndef UTF8LOGHANDLER_H
+﻿#ifndef UTF8LOGHANDLER_H
 #define UTF8LOGHANDLER_H
 #include <QtCore>
 #include <windows.h>
@@ -14,6 +14,12 @@ static void utf8LogHandler(QtMsgType type, const QMessageLogContext &context, co
         cerr.setCodec("UTF-8");
 #endif
     }
+#if QT_VERSION >= 0x060000
+    else
+    {
+        cerr.setEncoding(QStringConverter::System);
+    }
+#endif
     cerr << message << Qt::endl << Qt::flush;
 }
 #endif // UTF8LOGHANDLER_H

@@ -1,9 +1,7 @@
 ﻿#ifndef APPDATA_H
 #define APPDATA_H
-
 #include <QtCore>
 #include <QtQml>
-
 static inline QString escapeChar(const QChar &c)
 {
     // https://en.cppreference.com/w/cpp/language/escape
@@ -33,7 +31,6 @@ static inline QString escapeChar(const QChar &c)
         break;
     }
 }
-
 static inline QString escapeString(const QString &s)
 {
     QString result = "\"";
@@ -44,7 +41,6 @@ static inline QString escapeString(const QString &s)
     result += "\"";
     return result;
 }
-
 static inline QString jsValueToText(const QJSValue &x)
 {
     if(x.isVariant())
@@ -125,7 +121,6 @@ static inline QString jsValueToText(const QJSValue &x)
         return x.toString();
     }
 }
-
 class ApplicationData : public QObject
 {
     Q_OBJECT
@@ -164,7 +159,6 @@ public:
     {
         return m_count;
     }
-
     void setCount(int value)
     {
         if (m_count != value) {
@@ -176,19 +170,18 @@ public:
         return QString("ApplicationData(count=%1)").arg(m_count);
     }
 };
-
 class ApplicationFactory : public QObject
 {
     Q_OBJECT
 public:
-    explicit ApplicationFactory(QObject *parent = nullptr) : QObject(parent) {}
+    explicit ApplicationFactory(QObject *parent = nullptr) : QObject(parent) {
+    }
     Q_INVOKABLE ApplicationData *newApplicationData(){
-        return new class ApplicationData();
+        return new class ApplicationData ();
     }
     Q_INVOKABLE void log(const QJSValue &x)
     {
         qDebug().noquote() << jsValueToText(x);
     }
 };
-
 #endif // APPDATA_H

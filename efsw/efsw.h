@@ -78,8 +78,8 @@ enum efsw_error
 };
 /// Basic interface for listening for file events.
 typedef void (*efsw_pfn_fileaction_callback)(efsw_watcher watcher, efsw_watchid watchid, const char *dir,
-        const char *filename, enum efsw_action action,
-        const char *old_filename, void *param);
+                                             const char *filename, enum efsw_action action,
+                                             const char *old_filename, void *param);
 /**
  * Creates a new file-watcher
  * @param generic_mode Force the use of the Generic file watcher

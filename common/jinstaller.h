@@ -8,14 +8,14 @@
 #include "jarchiver.h"
 #if 0x0
 QString getForText(
-        JNetworkManager &nm,
-        QUrl url,
-        NetworkIdleCallback callback = nullptr);
+    JNetworkManager &nm,
+    QUrl url,
+    NetworkIdleCallback callback = nullptr);
 bool getForFile(
-        JNetworkManager &nm,
-        QUrl url,
-        QString filePath,
-        NetworkIdleCallback callback = nullptr);
+    JNetworkManager &nm,
+    QUrl url,
+    QString filePath,
+    NetworkIdleCallback callback = nullptr);
 #endif
 bool extractZip(QString zipPath,
                 QString destDir,

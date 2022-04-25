@@ -65,7 +65,7 @@ static inline QString np(QString x)
     return x.replace("/", "\\");
 }
 static inline void updateListWidgetContent(QListWidget *lw, QStringList *newContent, const QString &selectedName,
-        bool force = false)
+                                           bool force = false)
 {
     QStringList currRepoList;
     QMap<QString, QBrush> currColorMap;

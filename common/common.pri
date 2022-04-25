@@ -9,7 +9,10 @@ HEADERS += \
     $$PWD/jlistwidget.h \
     $$PWD/jnetwork.h \
     $$PWD/junctionmanager.h \
-    $$PWD/utf8LogHandler.h
+    $$PWD/pcloudapi.h \
+    $$PWD/utf8LogHandler.h \
+    $$PWD/varianttojson.h \
+    $$PWD/youtubeapi.h
 
 SOURCES += \
     $$PWD/jarchiver.cpp \
@@ -17,13 +20,16 @@ SOURCES += \
     $$PWD/jinstaller.cpp \
     $$PWD/jlistwidget.cpp \
     $$PWD/jnetwork.cpp \
-    $$PWD/junctionmanager.cpp
+    $$PWD/junctionmanager.cpp \
+    $$PWD/pcloudapi.cpp \
+    $$PWD/youtubeapi.cpp
 
 INCLUDEPATH += $$PWD
 msvc:INCLUDEPATH += $$(HOME)/conan/binaries/include
 
 gcc {
     LIBS += -larchive -lz -lbz2 -llzma -liconv -lbcrypt -lexpat -lb2 -llz4
+    LIBS += -lcrypto -lssl
     LIBS += -ladvapi32 -lole32 -loleaut32 -luser32 -luuid
 }
 msvc {
