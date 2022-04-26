@@ -13,6 +13,9 @@ SOURCES += \
 RESOURCES +=
 
 HEADERS += \
+    AJSEngine.h \
+    EscapeString.h \
+    VariantToText.h \
     app-data.h
 
 DISTFILES += \

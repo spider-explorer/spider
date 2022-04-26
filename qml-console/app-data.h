@@ -126,13 +126,25 @@ class ApplicationData : public QObject
     Q_OBJECT
     int m_count = 1234;
 public:
+    QQmlEngine *m_engine = nullptr;
+public:
     Q_PROPERTY(int count READ count WRITE setCount);
     explicit ApplicationData(QObject *parent = nullptr) : QObject(parent) {
         qDebug() << "ApplicationData::ApplicationData() called";
+        m_engine = qmlEngine(this);
     }
     virtual ~ApplicationData()
     {
         qDebug() << "~ApplicationData() called";
+    }
+    Q_INVOKABLE double divide(double a, double b)
+    {
+        if (b == 0.0)
+        {
+            m_engine->throwError(tr("Division by zero error"));
+            return 0.0;
+        }
+        return a / b;
     }
     Q_INVOKABLE QString getTextFromCpp(){
         return QString("This is the text from C++");
@@ -174,10 +186,15 @@ class ApplicationFactory : public QObject
 {
     Q_OBJECT
 public:
+    QQmlEngine *m_engine = nullptr;
+public:
     explicit ApplicationFactory(QObject *parent = nullptr) : QObject(parent) {
+        m_engine = qmlEngine(this);
     }
     Q_INVOKABLE ApplicationData *newApplicationData(){
-        return new class ApplicationData ();
+        ApplicationData *o = new class ApplicationData ();
+        o->m_engine = m_engine;
+        return o;
     }
     Q_INVOKABLE void log(const QJSValue &x)
     {

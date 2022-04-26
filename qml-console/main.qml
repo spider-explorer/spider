@@ -25,6 +25,7 @@ Item {
     function main(args) {
         //logger.log(Logger.Debug, "Entering function aFunctionThatYouWantToDebug(" + iArgumentOne + ", " + iArgumentTwo + ")");
         //console.dir("abc");
+        console.log(args);
         console.log(glob);
         glob.log(["abc\nxyz", function() {}])
         glob.log(typeof function(){});
@@ -47,7 +48,7 @@ Item {
             if(x != null) console.log(x);
         }
 
-        Main.func(glob);
+        Main.main(glob);
         return 777;
     }
 
