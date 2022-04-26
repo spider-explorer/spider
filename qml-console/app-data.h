@@ -125,13 +125,12 @@ class ApplicationData : public QObject
 {
     Q_OBJECT
     int m_count = 1234;
-public:
     QQmlEngine *m_engine = nullptr;
 public:
     Q_PROPERTY(int count READ count WRITE setCount);
-    explicit ApplicationData(QObject *parent = nullptr) : QObject(parent) {
+    explicit ApplicationData(QQmlEngine *engine = nullptr, QObject *parent = nullptr) : QObject(parent) {
         qDebug() << "ApplicationData::ApplicationData() called";
-        m_engine = qmlEngine(this);
+        m_engine = engine ? engine : qmlEngine(this);
     }
     virtual ~ApplicationData()
     {
@@ -185,15 +184,17 @@ public:
 class ApplicationFactory : public QObject
 {
     Q_OBJECT
-public:
     QQmlEngine *m_engine = nullptr;
 public:
-    explicit ApplicationFactory(QObject *parent = nullptr) : QObject(parent) {
-        m_engine = qmlEngine(this);
+    explicit ApplicationFactory(QQmlEngine *engine = nullptr, QObject *parent = nullptr) : QObject(parent) {
+        m_engine = engine ? engine : qmlEngine(this);
+    }
+    virtual ~ApplicationFactory()
+    {
+        qDebug().noquote() << "~ApplicationFactory() called";
     }
     Q_INVOKABLE ApplicationData *newApplicationData(){
-        ApplicationData *o = new class ApplicationData ();
-        o->m_engine = m_engine;
+        ApplicationData *o = new ApplicationData(m_engine);
         return o;
     }
     Q_INVOKABLE void log(const QJSValue &x)

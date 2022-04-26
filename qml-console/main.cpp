@@ -32,8 +32,7 @@ int main(int argc, char *argv[])
     {
         // Load JS File
         qDebug() << "Load JS File:" << app.arguments();
-        ApplicationFactory fac;
-        fac.m_engine = &engine;
+        ApplicationFactory fac(&engine);
         qDebug() << info.absoluteFilePath();
         QJSValue _main = engine.importModule(info.absoluteFilePath());
         qDebug() << jsValueToText(_main);
