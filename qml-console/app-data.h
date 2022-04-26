@@ -121,16 +121,33 @@ static inline QString jsValueToText(const QJSValue &x)
         return x.toString();
     }
 }
-class ApplicationData : public QObject
+
+class EngineObject : public QObject
+{
+    Q_OBJECT
+    QQmlEngine *m_engine = nullptr;
+public:
+    EngineObject(QQmlEngine *engine = nullptr, QObject *parent = nullptr) : QObject(parent)
+    {
+        m_engine = engine;
+    }
+    QQmlEngine *engine()
+    {
+        return m_engine ? m_engine : qmlEngine(this);
+    }
+};
+
+class ApplicationData : public EngineObject
 {
     Q_OBJECT
     int m_count = 1234;
-    QQmlEngine *m_engine = nullptr;
+    //QQmlEngine *m_engine = nullptr;
 public:
     Q_PROPERTY(int count READ count WRITE setCount);
-    explicit ApplicationData(QQmlEngine *engine = nullptr, QObject *parent = nullptr) : QObject(parent) {
+    explicit ApplicationData(QQmlEngine *engine = nullptr, QObject *parent = nullptr) : EngineObject(engine, parent)
+    {
         qDebug() << "ApplicationData::ApplicationData() called";
-        m_engine = engine ? engine : qmlEngine(this);
+        //m_engine = engine; // ? engine : qmlEngine(this);
     }
     virtual ~ApplicationData()
     {
@@ -140,7 +157,7 @@ public:
     {
         if (b == 0.0)
         {
-            m_engine->throwError(tr("Division by zero error"));
+            engine()->throwError(tr("Division by zero error"));
             return 0.0;
         }
         return a / b;
@@ -181,20 +198,20 @@ public:
         return QString("ApplicationData(count=%1)").arg(m_count);
     }
 };
-class ApplicationFactory : public QObject
+class ApplicationFactory : public EngineObject
 {
     Q_OBJECT
-    QQmlEngine *m_engine = nullptr;
+    //QQmlEngine *m_engine = nullptr;
 public:
-    explicit ApplicationFactory(QQmlEngine *engine = nullptr, QObject *parent = nullptr) : QObject(parent) {
-        m_engine = engine ? engine : qmlEngine(this);
+    explicit ApplicationFactory(QQmlEngine *engine = nullptr, QObject *parent = nullptr) : EngineObject(engine, parent)
+    {
     }
     virtual ~ApplicationFactory()
     {
         qDebug().noquote() << "~ApplicationFactory() called";
     }
     Q_INVOKABLE ApplicationData *newApplicationData(){
-        ApplicationData *o = new ApplicationData(m_engine);
+        ApplicationData *o = new ApplicationData(engine());
         return o;
     }
     Q_INVOKABLE void log(const QJSValue &x)
