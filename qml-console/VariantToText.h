@@ -1,9 +1,7 @@
 #ifndef VARIANTTOTEXT_H
 #define VARIANTTOTEXT_H
-
 #include <QtCore>
 #include "EscapeString.h"
-
 static inline QString variantToText(const QVariant &x)
 {
     switch(x.type())
@@ -132,5 +130,4 @@ static inline QString variantToText(const QVariant &x)
         break;
     }
 }
-
 #endif // VARIANTTOTEXT_H

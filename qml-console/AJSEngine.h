@@ -1,12 +1,9 @@
 ﻿#ifndef AJSENGINE_H
 #define AJSENGINE_H
-
 #include <QtCore>
 //#include <QJSEngine>
 #include <QJSValueIterator>
-
 #include "EscapeString.h"
-
 static inline QString jsValueToText(const QJSValue &x)
 {
     if(x.isVariant())
@@ -86,9 +83,7 @@ static inline QString jsValueToText(const QJSValue &x)
     {
         return x.toString();
     }
-
 }
-
 #if 0x0
 class AJSEngineConsole : public QObject
 {
@@ -103,7 +98,6 @@ public:
         qDebug().noquote() << jsValueToText(x);
     }
 };
-
 class AJSEngine : public QJSEngine
 {
     Q_OBJECT
@@ -140,5 +134,4 @@ public:
     }
 };
 #endif
-
 #endif // AJSENGINE_H

@@ -484,6 +484,34 @@ void SpiderCore::open_file(QWidget *widget, QString path)
     }
 }
 
+void SpiderCore::open_notepad3(QWidget *widget, QString path)
+{
+    SpiderProcess *sproc = new SpiderProcess(
+        [this, widget, path](SpiderProcStage stage, SpiderProcess *proc)
+    {
+        if (stage == SpiderProcStage::PROC_SETUP)
+        {
+            proc->proc()->setProgram(ProgramDB().which("notepad3.exe"));
+            proc->proc()->setArguments(QStringList() << path);
+            proc->proc()->setWorkingDirectory(QFileInfo(path).absolutePath());
+        }
+        else if (stage == SpiderProcStage::PROC_FINISH)
+        {
+            if (proc->proc()->exitCode() == 0)
+            {
+                // QMessageBox::information(widget, "確認",
+                // "notepad3を起動しました");
+            }
+            else
+            {
+                QMessageBox::information(widget, "確認", "notepad3の起動が失敗しました");
+            }
+            proc->deleteLater();
+        }
+    });
+    sproc->start();
+}
+
 bool SpiderCore::check_system_qt_project(QWidget *widget, QString proFile)
 {
     QFileInfo userInfo = proFile + ".user";

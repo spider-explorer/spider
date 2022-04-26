@@ -121,7 +121,6 @@ static inline QString jsValueToText(const QJSValue &x)
         return x.toString();
     }
 }
-
 class EngineObject : public QObject
 {
     Q_OBJECT
@@ -136,7 +135,6 @@ public:
         return m_engine ? m_engine : qmlEngine(this);
     }
 };
-
 class ApplicationData : public EngineObject
 {
     Q_OBJECT

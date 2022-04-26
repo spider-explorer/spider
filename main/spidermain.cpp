@@ -81,6 +81,14 @@ SpiderMain::SpiderMain(QWidget *parent) : QMainWindow(parent), ui(new Ui::Spider
             g_core().open_file(this, path);
         });
         contextMenu.addAction(actionOpen);
+        QAction *actionOpenNotepad3 = new QAction(QString("%1をnotepad3で開く").arg(QFileInfo(path).fileName()), this);
+        QObject::connect(actionOpenNotepad3, &QAction::triggered,
+                         [this, path]()
+        {
+            qDebug() << path;
+            g_core().open_notepad3(this, path);
+        });
+        contextMenu.addAction(actionOpenNotepad3);
         if (FavManager().contains(path))
         {
             QAction *actionUnFavorite =

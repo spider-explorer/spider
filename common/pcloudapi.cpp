@@ -47,6 +47,31 @@ void pCloudAPI::listFolder()
     foreach(QVariant e, list)
     {
         QVariantMap entry = e.toMap();
-        qDebug() << entry["path"];
+        qDebug() << entry["path"].toString();
     }
+}
+
+void pCloudAPI::uploadFile()
+{
+    // https://api.pcloud.com/uploadfile
+    QUrl url("https://api.pcloud.com/uploadfile");
+    QUrlQuery query;
+    QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
+    query.addQueryItem("auth", m_auth);
+    query.addQueryItem("path", "/");
+    query.addQueryItem("filename", "pcloud.cpp");
+    url.setQuery(query.query());
+    QNetworkRequest request(url);
+    QFile file("pcloud.cpp");
+    if(!file.open(QIODevice::ReadOnly))
+    {
+        qDebug() << "Could not open pcloud.cpp";
+        return;
+    }
+    QByteArray data = file.readAll();
+    qDebug().noquote() << data;
+    JNetworkManager nm;
+    QVariantMap result = nm.postBatch(request, "application/octet-stream", data);
+    qDebug() << result;
+    qDebug().noquote() << result["body"].toString();
 }

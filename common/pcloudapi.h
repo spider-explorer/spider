@@ -8,6 +8,7 @@ public:
     pCloudAPI();
     ~pCloudAPI();
     void listFolder();
+    void uploadFile();
 private:
     JNetworkManager m_nm;
     QString m_auth;

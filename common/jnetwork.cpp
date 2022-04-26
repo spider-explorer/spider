@@ -166,6 +166,7 @@ QNetworkReply *JNetworkManager::postRequest(const QNetworkRequest &request, bool
     QNetworkRequest request2(request);
     request2.setAttribute(QNetworkRequest::RedirectPolicyAttribute, true);
     request2.setHeader(QNetworkRequest::ContentTypeHeader, contentType);
+    //request2.setHeader(QNetworkRequest::ContentLengthHeader, data.size());
     QNetworkReply *reply = this->post(request2, data);
     if(batch)
     {

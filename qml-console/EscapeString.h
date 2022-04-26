@@ -1,8 +1,6 @@
 #ifndef ESCAPESTRING_H
 #define ESCAPESTRING_H
-
 #include <QtCore>
-
 static inline QString escapeChar(const QChar &c)
 {
     // https://en.cppreference.com/w/cpp/language/escape
@@ -32,7 +30,6 @@ static inline QString escapeChar(const QChar &c)
         break;
     }
 }
-
 static inline QString escapeString(const QString &s)
 {
     QString result = "\"";
@@ -43,5 +40,4 @@ static inline QString escapeString(const QString &s)
     result += "\"";
     return result;
 }
-
 #endif // ESCAPESTRING_H
