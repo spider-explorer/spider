@@ -512,7 +512,7 @@ void SpiderCore::open_notepad3(QWidget *widget, QString path)
     sproc->start();
 }
 
-bool SpiderCore::check_system_qt_project(QWidget *widget, QString proFile)
+QMessageBox::StandardButton SpiderCore::check_system_qt_project(QWidget *widget, QString proFile)
 {
     QFileInfo userInfo = proFile + ".user";
     if(userInfo.exists())
@@ -523,27 +523,31 @@ bool SpiderCore::check_system_qt_project(QWidget *widget, QString proFile)
             QByteArray bytes = userFile.readAll();
             if(bytes.contains("(MSYS2)"))
             {
-                return false;
+                return QMessageBox::No;
             }
             else
             {
-                return true;
+                return QMessageBox::Yes;
             }
         }
     }
     QFileInfo sysQt = QStringLiteral("C:/Qt/Tools/QtCreator/bin/qtcreator.exe");
-    if(!sysQt.exists()) return false;
+    if(!sysQt.exists()) return QMessageBox::No;
     QMessageBox::StandardButton reply = QMessageBox::question(widget, "確認", QString("%1で開きますか?").arg(sysQt.absoluteFilePath()),
-                                        QMessageBox::Yes | QMessageBox::No);
+                                        QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel);
+    return reply;
+#if 0x0
     if (reply == QMessageBox::Yes)
     {
         return true;
     }
     return false;
+#endif
 }
 void SpiderCore::develop_with_qtcreator(QWidget *widget, QString proFile)
 {
-    bool useSysQt = this->check_system_qt_project(widget, proFile);
+    QMessageBox::StandardButton useSysQt = this->check_system_qt_project(widget, proFile);
+    if(useSysQt != QMessageBox::Yes && useSysQt != QMessageBox::No) return;
     m_one_moment.show();
     m_one_moment.showMessage("QtCreatorを起動中...");
     SpiderProcess *sproc = new SpiderProcess(
@@ -551,12 +555,12 @@ void SpiderCore::develop_with_qtcreator(QWidget *widget, QString proFile)
     {
         if (stage == SpiderProcStage::PROC_SETUP)
         {
-            if(useSysQt)
+            if(useSysQt == QMessageBox::Yes)
             {
                 proc->proc()->setProgram("C:/Qt/Tools/QtCreator/bin/qtcreator.exe");
                 proc->proc()->setArguments(QStringList() << proFile);
             }
-            else
+            else if(useSysQt == QMessageBox::No)
             {
                 proc->proc()->setProgram(R"(cmd.exe)");
                 proc->proc()->setArguments(QStringList() << "/c"

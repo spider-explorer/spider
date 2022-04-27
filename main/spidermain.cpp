@@ -84,6 +84,18 @@ SpiderMain::SpiderMain(QWidget *parent) : QMainWindow(parent), ui(new Ui::Spider
             g_core().open_notepad3(this, path);
         });
         contextMenu.addAction(actionOpenNotepad3);
+        if(QFileInfo(path).suffix().toLower() == "pro")
+        {
+            QAction *actionResetQtProject = new QAction(QString("%1をリセットする").arg(QFileInfo(path).fileName()), this);
+            QObject::connect(actionResetQtProject, &QAction::triggered,
+                             [this, path]()
+            {
+                QString userFile = path + ".user";
+                qDebug() << userFile;
+                QFile(userFile).remove();
+            });
+            contextMenu.addAction(actionResetQtProject);
+        }
         if (FavManager().contains(path))
         {
             QAction *actionUnFavorite =

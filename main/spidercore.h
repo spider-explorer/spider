@@ -26,7 +26,7 @@ public:
     void open_bash(QWidget *widget, QString path = "");
     void open_file(QWidget *widget, QString path);
     void open_notepad3(QWidget *widget, QString path);
-    bool check_system_qt_project(QWidget *widget, QString proFile);
+    QMessageBox::StandardButton check_system_qt_project(QWidget *widget, QString proFile);
     void develop_with_qtcreator(QWidget *widget, QString proFile);
     void develop_with_lazarus(QWidget *widget, QString lprFile);
     void develop_with_codelite(QWidget *widget, QString projFile);

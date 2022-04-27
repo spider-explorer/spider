@@ -153,17 +153,4 @@ SOURCES += \
     $$PWD/extlibs/lzma/XzCrc64.c \
     $$PWD/extlibs/lzma/XzDec.c \
     $$PWD/extlibs/lzma/XzEnc.c \
-    $$PWD/extlibs/lzma/XzIn.c \
-    $$PWD/extlibs/zlib/adler32.c \
-    $$PWD/extlibs/zlib/compress.c \
-    $$PWD/extlibs/zlib/crc32.c \
-    $$PWD/extlibs/zlib/deflate.c \
-    $$PWD/extlibs/zlib/infback.c \
-    $$PWD/extlibs/zlib/inffast.c \
-    $$PWD/extlibs/zlib/inflate.c \
-    $$PWD/extlibs/zlib/inftrees.c \
-    $$PWD/extlibs/zlib/trees.c \
-    $$PWD/extlibs/zlib/uncompr.c \
-    $$PWD/extlibs/zlib/zutil.c
-
-DISTFILES +=
+    $$PWD/extlibs/lzma/XzIn.c

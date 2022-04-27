@@ -1,6 +1,10 @@
-#pragma once
+﻿#pragma once
 #include <cstdint>
 #include <ctime>
+
+#if defined(__GNUC__) && defined(__MINGW32__)
+#   define localtime_r(T,Tm) (localtime_s(Tm,T) ? NULL : Tm)
+#endif
 
 #if defined(_MSC_VER)
 # define _utils_stream_localtime(dt, ts)  do { localtime_s((ts), (dt)); } while (0)
