@@ -17,9 +17,10 @@ QNetworkReply *JNetworkManager::headRequest(const QNetworkRequest &request, bool
     QNetworkReply *reply = this->head(request2);
     if(batch)
     {
-        while (!reply->isFinished())
+        QEventLoop loop;
+        while(!reply->isFinished())
         {
-            qApp->processEvents();
+            loop.processEvents(QEventLoop::AllEvents);
         }
     }
     return reply;
@@ -64,9 +65,10 @@ QNetworkReply *JNetworkManager::getRequest(const QNetworkRequest &request, bool 
     QNetworkReply *reply = this->get(request2);
     if(batch)
     {
-        while (!reply->isFinished())
+        QEventLoop loop;
+        while(!reply->isFinished())
         {
-            qApp->processEvents();
+            loop.processEvents(QEventLoop::AllEvents);
             if(callback != nullptr)
             {
                 callback(reply);
@@ -170,9 +172,10 @@ QNetworkReply *JNetworkManager::postRequest(const QNetworkRequest &request, bool
     QNetworkReply *reply = this->post(request2, data);
     if(batch)
     {
-        while (!reply->isFinished())
+        QEventLoop loop;
+        while(!reply->isFinished())
         {
-            qApp->processEvents();
+            loop.processEvents(QEventLoop::AllEvents);
             if(callback != nullptr)
             {
                 callback(reply);

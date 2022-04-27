@@ -19,6 +19,8 @@ SOURCES += %1.cpp
 INCLUDEPATH += $$PWD
 INCLUDEPATH += $$(HOME)/include
 
+LIBS += -L$$[QT_INSTALL_PREFIX]/lib
+
 DESTDIR = $$PWD
 
 TARGET = $${TARGET}-$${QMAKE_HOST.arch}

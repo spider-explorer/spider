@@ -20,6 +20,11 @@ QMAKE_CXXFLAGS_WARN_ON += -Wno-unused-parameter -Wno-unused-function
 #LIBS += -ladvapi32 -lole32 -loleaut32 -luser32 -luuid
 LIBS += $$PWD/efsw/libefsw.a
 
+SPIDER_VERSION = $$system(busybox date +%Y.%m.%d.%H.%M.%S)
+message( $$SPIDER_VERSION )
+
+DEFINES += SPIDER_VERSION=\\\"$$SPIDER_VERSION\\\"
+
 SOURCES += \
     3rdparty/EasyOLE.cpp \
     binarysettings.cpp \

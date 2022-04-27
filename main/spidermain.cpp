@@ -24,13 +24,8 @@ SpiderMain::SpiderMain(QWidget *parent) : QMainWindow(parent), ui(new Ui::Spider
     }
     ui->toolBar->setStyleSheet(
         "QToolButton:!hover {background-color:lightgray} QToolBar {background: rgb(30, 30, 30)}");
-    QFile version(":/spider2.version.txt");
-    if (version.open(QIODevice::ReadOnly))
-    {
-        QByteArray versionBytes = version.readAll().trimmed();
-        qDebug() << "version=" << versionBytes;
-        this->setWindowTitle(QString("Spider Explorer v%1").arg(QString::fromLatin1(versionBytes)));
-    }
+    QString version = SPIDER_VERSION;
+    this->setWindowTitle(QString("Spider2 v%1").arg(version));
     //
     QToolBar *explorerTopToolbar = ui->explorerWidget->topToolbar(); // new QToolBar(this);
     explorerTopToolbar->addAction(ui->actionChrome);

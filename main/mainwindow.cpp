@@ -95,6 +95,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
 #endif
     // this->ui->listWidget->setDragDropMode(QAbstractItemView::InternalMove);
     // // Drag & Drop Item Sort
+#if 0x0
     QFile version(":/spider2.version.txt");
     if (version.open(QIODevice::ReadOnly))
     {
@@ -102,6 +103,11 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
         qDebug() << "version=" << versionBytes;
         this->setWindowTitle(QString("Spider2 v%1").arg(QString::fromLatin1(versionBytes)));
     }
+#else
+#define STRING(str) #str
+    QString version = STRING(SPIDER_VERSION);
+    this->setWindowTitle(QString("Spider2 v%1").arg(version));
+#endif
     this->reloadNameList();
     connect(&m_reload_timer, &QTimer::timeout, [this]()
     {
