@@ -10,6 +10,7 @@ HEADERS += \
     $$PWD/junctionmanager.h \
     $$PWD/pcloudapi.h \
     $$PWD/utf8LogHandler.h \
+    $$PWD/variantserializer.h \
     $$PWD/varianttojson.h \
     $$PWD/youtubeapi.h
 
@@ -38,6 +39,7 @@ SOURCES += \
     $$PWD/jnetwork.cpp \
     $$PWD/junctionmanager.cpp \
     $$PWD/pcloudapi.cpp \
+    $$PWD/variantserializer.cpp \
     $$PWD/youtubeapi.cpp
 
 #    $$PWD/zlib/adler32.c \

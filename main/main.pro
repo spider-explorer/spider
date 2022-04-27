@@ -58,7 +58,6 @@ SOURCES += \
     spidermain.cpp \
     spiderprocess.cpp \
     test01dialog.cpp \
-    variantserializer.cpp \
     windowsutils.cpp \
     wslcore.cpp \
     wslfilesystemmodel.cpp
@@ -98,7 +97,6 @@ HEADERS += \
     spidermain.h \
     spiderprocess.h \
     test01dialog.h \
-    variantserializer.h \
     windowsutils.h \
     wslcore.h \
     wslfilesystemmodel.h
