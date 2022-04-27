@@ -1,4 +1,5 @@
 QT += core gui widgets
+equals(QT_MAJOR_VERSION, 6):QT += core5compat
 
 CONFIG += c++17
 CONFIG += console
@@ -7,7 +8,6 @@ CONFIG += console
 #CONFIG += staticlib
 #CONFIG += dll
 
-# disables all the APIs deprecated before Qt 6.0.0
 DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000
 
 gcc:QMAKE_CXXFLAGS_WARN_ON += -Wno-unused-parameter -Wno-unused-function
@@ -36,3 +36,4 @@ contains(QMAKE_QMAKE, .*\-static\/.*) {
 
 #include($$(HOME)/qt/common/common.pri)
 #include($$(HOME)/qt/common/boost/boost.pri)
+#include($$(HOME)/qt/common/ZipLib/ZipLib.pri)
