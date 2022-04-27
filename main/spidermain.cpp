@@ -61,6 +61,12 @@ SpiderMain::SpiderMain(QWidget *parent) : QMainWindow(parent), ui(new Ui::Spider
             g_core().open_vscode(this, path);
         });
         contextMenu.addAction(actOpenVscode);
+        QAction *actRemove = new QAction(QString("%1 を削除する").arg(QFileInfo(path).fileName()), this);
+        QObject::connect(actRemove, &QAction::triggered, [this, path]()
+        {
+            qDebug() << QDir(path).removeRecursively();
+        });
+        contextMenu.addAction(actRemove);
     });
     //
     connect(ui->explorerWidget, &ExplorerForm::signal_fileRequestedContextMenu,
@@ -96,6 +102,12 @@ SpiderMain::SpiderMain(QWidget *parent) : QMainWindow(parent), ui(new Ui::Spider
             });
             contextMenu.addAction(actionResetQtProject);
         }
+        QAction *actRemove = new QAction(QString("%1 を削除する").arg(QFileInfo(path).fileName()), this);
+        QObject::connect(actRemove, &QAction::triggered, [this, path]()
+        {
+            qDebug() << QFile(path).remove();
+        });
+        contextMenu.addAction(actRemove);
         if (FavManager().contains(path))
         {
             QAction *actionUnFavorite =

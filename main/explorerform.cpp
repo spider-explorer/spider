@@ -72,8 +72,15 @@ ExplorerForm::ExplorerForm(QWidget *parent) : QWidget(parent), ui(new Ui::Explor
             return;
         }
         QMenu contextMenu("Context menu", this);
-        QString file = m_fileModel.filePath(index);
-        emit signal_fileRequestedContextMenu(contextMenu, file);
+        QString path = m_fileModel.filePath(index);
+        if(QFileInfo(path).isDir())
+        {
+            emit signal_folderRequestedContextMenu(contextMenu, path);
+        }
+        else
+        {
+            emit signal_fileRequestedContextMenu(contextMenu, path);
+        }
         contextMenu.exec(ui->listView->viewport()->mapToGlobal(pos));
     });
     //

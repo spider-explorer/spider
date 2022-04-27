@@ -3,6 +3,7 @@ QT += core gui widgets network
 #CONFIG += c++17
 
 HEADERS += \
+    $$PWD/MemoryModule.h \
     $$PWD/jchecksum.h \
     $$PWD/jlistwidget.h \
     $$PWD/jnetwork.h \
@@ -31,6 +32,7 @@ HEADERS += \
 gcc:HEADERS += $$PWD/jarchiver.h $$PWD/jinstaller.h
 
 SOURCES += \
+    $$PWD/MemoryModule.c \
     $$PWD/jchecksum.cpp \
     $$PWD/jlistwidget.cpp \
     $$PWD/jnetwork.cpp \
