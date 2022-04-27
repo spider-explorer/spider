@@ -2,10 +2,10 @@
   "version": "?",
   "software": {
     "SpiderBrowser": {
-      "version": "v2022.04.25.18.08.14",
+      "version": "v2022.04.25.23.01.41",
       "ext": "zip",
       "path": ".",
-      "url": "https://github.com/spider-explorer/spiderbrowser/releases/download/v2022.04.25.18.08.14/spiderbrowser-v2022.04.25.18.08.14.zip"
+      "url": "https://github.com/spider-explorer/spiderbrowser/releases/download/v2022.04.25.23.01.41/spiderbrowser-v2022.04.25.23.01.41.zip"
     },
     "AirExplorer": {
       "version": "4.6.2",
@@ -16,6 +16,7 @@
     "Everything": {
       "version": "1.4.1.1015.x64",
       "ext": "zip",
+      "path": ".",
       "url": "https://gitlab.com/spider-explorer/spider-software/-/raw/main/.software/Everything/Everything-1.4.1.1015.x64.zip"
     },
     "FileSum": {
@@ -43,16 +44,16 @@
       "url": "https://gitlab.com/spider-explorer/spider-software/-/raw/main/.software/office_x64/office_x64-7.3.2.7z"
     },
     "gh": {
-      "version": "2.8.0",
+      "version": "2.9.0",
       "ext": "7z",
       "path": "/bin",
-      "url": "https://gitlab.com/spider-explorer/spider-software/-/raw/main/.software/gh/gh-2.8.0.7z"
+      "url": "https://gitlab.com/spider-explorer/spider-software/-/raw/main/.software/gh/gh-2.9.0.7z"
     },
     "googlechrome": {
-      "version": "100.0.4896.127",
+      "version": "101.0.4951.41",
       "ext": "7z",
       "path": ".",
-      "url": "https://gitlab.com/spider-explorer/spider-software/-/raw/main/.software/googlechrome/googlechrome-100.0.4896.127.7z"
+      "url": "https://gitlab.com/spider-explorer/spider-software/-/raw/main/.software/googlechrome/googlechrome-101.0.4951.41.7z"
     },
     "wixtoolset": {
       "version": "3.11.2",

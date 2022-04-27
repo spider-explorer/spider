@@ -16,6 +16,7 @@
     "Everything": {
       "version": "1.4.1.1015.x64",
       "ext": "zip",
+      "path": ".",
       "url": "https://gitlab.com/spider-explorer/spider-software/-/raw/main/.software/Everything/Everything-1.4.1.1015.x64.zip"
     },
     "FileSum": {
