@@ -16,18 +16,26 @@ int main(int argc, char *argv[])
     QGuiApplication app(argc, argv);
     qInstallMessageHandler(utf8LogHandler);
 
-    if(app.arguments().size() != 2)
-    {
-        qDebug() << "QML path not specified. exiting.";
-        return -1;
-    }
+    qDebug() << "(01)";
 
     qmlRegisterType<ApplicationData>("app", 1, 0, "ApplicationData");
     qmlRegisterType<ApplicationFactory>("app", 1, 0, "ApplicationFactory");
 
     QQmlApplicationEngine engine;
-    QFileInfo info(app.arguments()[1]);
+    ApplicationFactory fac(&engine);
+    engine.globalObject().setProperty("glob2", engine.newQObject(&fac));
 
+    if(app.arguments().size() < 2)
+    {
+        //qDebug() << "QML path not specified. exiting.";
+        engine.evaluate(R"***(
+    var ad = glob2.newApplicationData();
+    console.log(ad.getTextFromCpp());
+)***");
+        return 0;
+    }
+
+    QFileInfo info(app.arguments()[1]);
     if(info.suffix().toLower()=="mjs")
     {
         // Load JS File

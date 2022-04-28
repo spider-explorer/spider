@@ -6,7 +6,7 @@ console.log("this is main.js!");
 export function main(glob)
 {
     console.log("func() called!");
-    var ad = glob.newApplicationData();
+    var ad = glob2.newApplicationData();
     console.log(ad.getTextFromCpp());
     var f = function(){};
     glob.log(typeof f);
