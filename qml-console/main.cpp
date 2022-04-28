@@ -32,6 +32,9 @@ int main(int argc, char *argv[])
     var ad = glob2.newApplicationData();
     console.log(ad.getTextFromCpp());
 )***");
+        QJSValue error = engine.newErrorObject(QJSValue::GenericError, "マイエラー");
+        QVariant errorV = error.toVariant();
+        qDebug() << errorV;
         return 0;
     }
 
